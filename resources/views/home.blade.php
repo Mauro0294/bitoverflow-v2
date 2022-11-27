@@ -7,6 +7,6 @@
     <title>Bitoverflow | Home</title>
 </head>
 <body>
-    <h2>Hi {{auth()->user()->first_name}}</h2>
+    <h2>Hi {{$user->first_name}}</h2>
 </body>
 </html>

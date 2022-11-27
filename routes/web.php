@@ -15,5 +15,6 @@ Route::post('register/request', [AuthController::class, 'registerRequest'])->nam
 Route::get('logout', [AuthController::class, 'logOut'])->name('logOut');
 
 Route::get('/home', function() {
-    return view('home');
+    $user = Auth::user();
+    return view('home', ['user' => $user]);
 })->middleware('auth');
