@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Post;
 use App\Models\User;
 
@@ -38,8 +39,6 @@ Route::get('/posts', function() {
     return view('posts');
 })->middleware('auth')->name('postsIndex');
 
-Route::get('/profile', function() {
-    $user = Auth::user();
-
-    return view('profile', ['user' => $user]);
-})->middleware('auth')->name('profile');
+// Profile routes
+Route::get('profile', [ProfileController::class, 'show'])->middleware('auth')->name('profile');
+Route::post('profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('editProfile');
