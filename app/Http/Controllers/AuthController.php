@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Session;
 
 class AuthController extends Controller
 {
@@ -19,9 +20,9 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
    
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('index')
+            return redirect()->intended('home')
                         ->withSuccess('Signed in');
         }
   
@@ -60,7 +61,7 @@ class AuthController extends Controller
       ]);
     }
     
-    public function signOut() {
+    public function logOut() {
         Session::flush();
         Auth::logout();
   

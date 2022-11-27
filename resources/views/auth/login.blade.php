@@ -22,7 +22,8 @@
                 </div>
             </div>
 
-            <form method="POST" class="flex flex-col items-center mt-20">
+            <form method="POST" action="{{ route('loginRequest') }}" class="flex flex-col items-center mt-20">
+                @csrf
                 <p class="mb-2 text-white">E-mail:</p>
                 <input type="email" class="rounded-full px-3 py-2 text-white outline-none bg-[#3D3D3D]" name="email" placeholder="E-mail" >
                 <p class="mb-2 mt-4 text-white">Wachtwoord:</p>
