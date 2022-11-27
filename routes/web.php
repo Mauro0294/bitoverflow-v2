@@ -12,4 +12,8 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login/request', [AuthController::class, 'loginRequest'])->name('loginRequest'); 
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register/request', [AuthController::class, 'registerRequest'])->name('registerRequest'); 
-Route::get('signout', [AuthController::class, 'signOut'])->name('signout');
+Route::get('logout', [AuthController::class, 'logOut'])->name('logOut');
+
+Route::get('/home', function() {
+    return view('home');
+})->middleware('auth');
