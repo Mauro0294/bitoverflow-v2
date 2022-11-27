@@ -15,7 +15,7 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login/request', [AuthController::class, 'loginRequest'])->name('loginRequest'); 
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register/request', [AuthController::class, 'registerRequest'])->name('registerRequest'); 
-Route::get('logout', [AuthController::class, 'logOut'])->name('logOut');
+Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
 
 // Logged in users routes
 Route::get('/home', function() {
