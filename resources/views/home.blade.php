@@ -17,7 +17,7 @@
         </a>
         <div class='flex'>
             <a href="{{ route('profile') }}"><button class='text-sm lg:text-lg text-white px-4 py-1 rounded-full flex items-center font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Mijn profiel</button></a>
-            <a href="{{ route('logout') }}"><button class='text-sm lg:text-lg text-white px-4 py-1 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900 ml-8'>Uitloggen</button></a>
+            <a href="{{ route('logout') }}"><button class='hidden lg:block text-sm lg:text-lg text-white px-4 py-1 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900 ml-8'>Uitloggen</button></a>
         </div>
     </div>
     <div class='flex'>
@@ -68,7 +68,7 @@
             </div>
             <div class='text-white px-1 lg:px-7 rounded-3xl lg:flex justify-between items-center w-full lg:w-[900px]'>
                 <h2 class='text-white font-bold text-xl lg:text-3xl my-10'>Wie is er op zoek naar hulp?</h2>
-                <a href="{{ route('postsIndex') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 block 2xl:hidden rounded-full h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
+                <a href="{{ route('postsIndex') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 block 2xl:hidden rounded-full h-12 mb-4 lg:mb-0 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
                 <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-full h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
             </div>
             <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[900px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
@@ -108,10 +108,12 @@
                                     <span class='w-10 h-10 flex items-center justify-center font-bold rounded-full ml-2 bg-white block lg:hidden'><img class='w-5' src='icons/chat.svg'></span>
                                 </div>
                             </div>
+                        </div>
                     </div>
-            </div>
+                <div class='w-full block lg:hidden mt-8 flex justify-center'>
+                    <a href="{{ route('logout') }}"><button class='text-sm lg:text-lg text-white px-4 py-2 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
+                </div>
         </div>
-    </div>
     </div>
     <div class='flex items-center py-8 lg:pl-8 px-6 lg:px-0 lg:pr-24 w-full justify-between w-full'>
         <h2 class='font-bold uppercase text-white text-lg lg:ml-48 cursor-pointer hover:text-gray-300 ease-in-out duration-300'>BitOverflow</h2>
@@ -123,6 +125,7 @@
                 <li class='font-bold uppercase text-white cursor-pointer hover:text-gray-300 ease-in-out duration-300'>Bit-Academy</li>
             </ul>
         </div>
+    </div>
 </body>
 </html>
 
