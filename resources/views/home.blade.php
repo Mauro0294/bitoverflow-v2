@@ -56,20 +56,20 @@
                 <h2 class='text-white  text-2xl lg:text-4xl mb-6 lg:ml-7 font-bold'>Goedemorgen {{ $user->first_name }}!
                 </h2>
                 <div class='bg-neutral-700 text-white py-8 px-7 rounded-3xl lg:w-[900px]'>
-                    <h3 class='text-base lg:text-2xl font'>Wat zijn vandaag de trending topics?</h3>
+                    <h3 class='text-base lg:text-2xl font'>Wat zijn de meest trending topics?</h3>
                     <div class='mt-8 flex justify-between'>
                         <div>
                             <div class='flex items-center'>
                                 <span class='bg-green-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>1</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>Javascript</h3>
+                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $mostUsedTag }}</h3>
                             </div>
                             <div class='flex items-center my-7'>
                                 <span class='bg-yellow-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>2</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>Laravel</h3>
+                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $secondMostUsedTag }}</h3>
                             </div>
                             <div class='flex items-center'>
                                 <span class='bg-orange-600 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>3</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>Python</h3>
+                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $thirdMostUsedTag }}</h3>
                             </div>
                         </div>
                         <div>

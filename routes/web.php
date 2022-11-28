@@ -28,7 +28,24 @@ Route::get('/home', function() {
 
     $postsCount = Post::count();
 
-    return view('home', ['user' => $user, 'lastPost' => $lastPost, 'lastPostUser' => $lastPostUser, 'postsCount' => $postsCount]);
+    // count which tag is the most used
+    $tags = Post::all();
+    $tagsCount = [];
+    foreach ($tags as $tag) {
+        $tagsCount[$tag->tag] = 0;
+    }
+    foreach ($tags as $tag) {
+        $tagsCount[$tag->tag]++;
+    }
+    $mostUsedTag = array_search(max($tagsCount), $tagsCount);
+
+    $tagsCount[$mostUsedTag] = 0;
+    $secondMostUsedTag = array_search(max($tagsCount), $tagsCount);
+
+    $tagsCount[$secondMostUsedTag] = 0;
+    $thirdMostUsedTag = array_search(max($tagsCount), $tagsCount);
+
+    return view('home', ['user' => $user, 'lastPost' => $lastPost, 'lastPostUser' => $lastPostUser, 'postsCount' => $postsCount, 'mostUsedTag' => $mostUsedTag, 'secondMostUsedTag' => $secondMostUsedTag, 'thirdMostUsedTag' => $thirdMostUsedTag]);
 })->middleware('auth')->name('home');
 
 Route::get('/createpost', function() {

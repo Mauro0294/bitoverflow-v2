@@ -10,7 +10,7 @@
 </head>
 <body class='bg-neutral-800'>
     <div class='flex items-center p-3 w-full justify-between'>
-        <a href="home.php">
+        <a href="{{ route('home') }}">
             <h2 class='font-bold uppercase text-white text-lg lg:text-xl'>BitOverflow</h2>
         </a>
         <div class='flex'>
