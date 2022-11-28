@@ -85,7 +85,7 @@
                     <p class='text-center'>TODO<br /> upvotes<br />gekregen</p>
                     <p class='text-center my-12 lg:my-0'>TODO<br />reacties<br />geplaatst</span></p>
                     <p class='text-center'>{{ $postsCount }}<br /> 
-                        @if ($postsCount > 1) vragen @else vraag @endif<br />gesteld</p>
+                        @if ($postsCount == 1) vraag @else vragen @endif<br />gesteld</p>
                 </div>
 
                 <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
