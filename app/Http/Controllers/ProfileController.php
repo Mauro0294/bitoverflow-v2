@@ -11,9 +11,11 @@ class ProfileController extends Controller
     public function show() {
         $user = Auth::user();
 
-        $lastPost = Post::whereId($user->id)->orderBy('id', 'desc')->first();
+        $lastPost = Post::whereUser_id($user->id)->orderBy('id', 'desc')->first();
 
-        return view('profile', ['user' => $user, 'lastPost' => $lastPost]);
+        $postsCount = Post::whereUser_id($user->id)->count();
+
+        return view('profile', ['user' => $user, 'lastPost' => $lastPost, 'postsCount' => $postsCount]);
     }
     public function edit(Request $request) {
         $request->validate([

@@ -84,7 +84,8 @@
                 <div style='background: #383838;' class='mb-16 flex flex-col lg:flex-row justify-between lg:px-32 text-white py-16 rounded-3xl text-xl'>
                     <p class='text-center'>TODO<br /> upvotes<br />gekregen</p>
                     <p class='text-center my-12 lg:my-0'>TODO<br />reacties<br />geplaatst</span></p>
-                    <p class='text-center'>TODO<br /> vragen<br />gesteld</p>
+                    <p class='text-center'>{{ $postsCount }}<br /> 
+                        @if ($postsCount > 1) vragen @else vraag @endif<br />gesteld</p>
                 </div>
 
                 <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
