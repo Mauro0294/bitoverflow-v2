@@ -18,15 +18,16 @@ class ProfileController extends Controller
         return view('profile', ['user' => $user, 'lastPost' => $lastPost, 'postsCount' => $postsCount]);
     }
     public function edit(Request $request) {
-        $request->validate([
-            'email' => 'required|email|unique:users',
-            'school_year' => 'required',
-            'biography' => 'required'
-        ]);
-
         $user = Auth::user();
-        $user->email = $request->email;
-        $user->school_year = $request->school_year;
+
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => 'unique:users',
+            ]); 
+            $user->email = $request->email;
+        }
+
+        $user->school_year = $request->school_year ?? $user->school_year;
         $user->biography = $request->biography;
         $user->save();
         return back();
