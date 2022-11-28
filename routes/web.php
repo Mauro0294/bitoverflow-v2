@@ -28,7 +28,6 @@ Route::get('/home', function() {
 
     $postsCount = Post::count();
 
-    // count which tag is the most used
     $tags = Post::all();
     $tagsCount = [];
     foreach ($tags as $tag) {
