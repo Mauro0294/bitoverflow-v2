@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
     public function show() {
         $user = Auth::user();
 
-        return view('profile', ['user' => $user]);
+        $lastPost = Post::whereId($user->id)->orderBy('id', 'desc')->first();
+
+        return view('profile', ['user' => $user, 'lastPost' => $lastPost]);
     }
     public function edit(Request $request) {
         $request->validate([
