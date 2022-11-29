@@ -12,6 +12,10 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $lastPost = Post::whereUser_id($user->id)->orderBy('id', 'desc')->first();
+        if ($lastPost == null) {
+            $lastPost = new Post;
+            $lastPost->subject = "No posts yet";
+        }
 
         $postsCount = Post::whereUser_id($user->id)->count();
 

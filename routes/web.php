@@ -23,7 +23,7 @@ Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
 Route::get('/home', function() {
     $user = Auth::user();
 
-    $lastPost = Post::where('user_id', $user->id)->first();
+    $lastPost = Post::orderBy('id', 'desc')->first();
 
     $lastPostUser = User::whereId($lastPost->user_id)->first();
 
