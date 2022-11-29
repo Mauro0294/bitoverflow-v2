@@ -10,8 +10,7 @@ class PostController extends Controller
 {
     public function showTagPost($tag) {
         $posts = Post::whereTag($tag)->get();
-        $users = User::whereIn('id', $posts->pluck('user_id'))->get();
 
-        return view('posts', ['posts' => $posts, 'tag' => $tag, 'users' => $users]);
+        return view('posts', ['posts' => $posts, 'tag' => $tag]);
     }
 }
