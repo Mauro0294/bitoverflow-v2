@@ -4,6 +4,10 @@ use App\Models\User;
 function getUser($user_id) {
     return User::find($user_id);
 }
+
+if (is_numeric($tag) && $posts != []) {
+    $posts = $posts[0];
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +62,7 @@ function getUser($user_id) {
         <div class='px-4 lg:pl-16 pt-8 bg-neutral-900 pb-12 md:pb-48 w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
             <h2 class='text-white  text-2xl lg:text-4xl mb-6 mt-6'>Bekijk alle recente posts</h2>
             <div class="lg:grid grid-cols-2">
-                @foreach ($posts as $post)
+                    @foreach ($posts as $post)
                     <div class='my-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[560px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
                         <div class='mr-4 mt-3 hidden lg:block min-w-[50px]'>
                             <img src='/images/profile.png' class='rounded-full'>

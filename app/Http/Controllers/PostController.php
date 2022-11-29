@@ -13,4 +13,14 @@ class PostController extends Controller
 
         return view('posts', ['posts' => $posts, 'tag' => $tag]);
     }
+    public function showYearPost($tag) {
+        $postsUser = User::whereSchool_year($tag)->get();
+
+        $posts = [];
+        foreach ($postsUser as $postUser) {
+            $posts[] = Post::whereUser_id($postUser->id)->get();
+        }
+        
+        return view('posts', ['posts' => $posts, 'tag' => $tag]);
+    }
 }
