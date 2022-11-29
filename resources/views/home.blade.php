@@ -26,13 +26,13 @@
                     <div class='bg-neutral-700 pl-3 uppercase'>Categorieën</div>
                     <a href="{{ route('home') }}"><button class='pl-3 flex items-center my-2 cursor-pointer hover:text-gray-300 ease-in-out duration-300'><img src='icons/house.svg' class='pr-2'>Home</button></a>
                     <div class='bg-neutral-700 pl-3 uppercase'>Leerjaren</div>
-                    <a href="{{ url('posts/year1') }}">
+                    <a href="{{ url('posts/year/1') }}">
                         <div class='border-b-2 border-neutral-700'><button class='py-2 pl-3 flex items-center mt-1 hover:text-gray-300 ease-in-out duration-300'><img src='/icons/leerjaar1.svg' class='pr-2'>1e jaar</button></div>
                     </a>
-                    <a href="{{ url('posts/year2') }}">
+                    <a href="{{ url('posts/year/2') }}">
                         <div class='border-b-2 border-neutral-700'><button class='py-2 pl-3 flex items-center pt-2 hover:text-gray-300 ease-in-out duration-300'><img src='icons/leerjaar2.svg' class='pr-2'>2e jaar</button></div>
                     </a>
-                    <a href="{{ url('posts/year3') }}"><button class='pl-3 py-2 flex items-center hover:text-gray-300 ease-in-out duration-300'><img src='icons/leerjaar3.svg' class='pr-2'>3e jaar</button></a>
+                    <a href="{{ url('posts/year/3') }}"><button class='pl-3 py-2 flex items-center hover:text-gray-300 ease-in-out duration-300'><img src='icons/leerjaar3.svg' class='pr-2'>3e jaar</button></a>
                     <div class='bg-neutral-700 pl-3 uppercase'>Talen</div>
                     <a href="{{ url('posts/php') }}">
                         <div class='border-b-2 border-neutral-700'><button class='py-2 pl-3 flex items-center mt-1 hover:text-gray-300 ease-in-out duration-300'><img src='icons/leerjaar1.svg' class='pr-2'>PHP</button></div>
@@ -61,15 +61,15 @@
                         <div>
                             <div class='flex items-center'>
                                 <span class='bg-green-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>1</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $mostUsedTag }}</h3>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($mostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $mostUsedTag }}</h3></a>
                             </div>
                             <div class='flex items-center my-7'>
                                 <span class='bg-yellow-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>2</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $secondMostUsedTag }}</h3>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($secondMostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $secondMostUsedTag }}</h3></a>
                             </div>
                             <div class='flex items-center'>
                                 <span class='bg-orange-600 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>3</span>
-                                <h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $thirdMostUsedTag }}</h3>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($thirdMostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $thirdMostUsedTag }}</h3></a>
                             </div>
                         </div>
                         <div>
