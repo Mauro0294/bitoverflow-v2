@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\User;
 
 // Non-login routes
 Route::get('/', function() {
-    return view('index');
+    return redirect('login');
 });
 
 // Authentication routes
@@ -22,7 +23,7 @@ Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
 Route::get('/home', function() {
     $user = Auth::user();
 
-    $lastPost = Post::orderBy('id', 'desc')->first();
+    $lastPost = Post::where('user_id', $user->id)->first();
 
     $lastPostUser = User::whereId($lastPost->user_id)->first();
 
@@ -52,9 +53,13 @@ Route::get('/createpost', function() {
 })->middleware('auth')->name('createPost');
 
 Route::get('/posts', function() {
-    return view('posts');
+    return view('allposts');
 })->middleware('auth')->name('postsIndex');
 
 // Profile routes
 Route::get('profile', [ProfileController::class, 'show'])->middleware('auth')->name('profile');
 Route::post('profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('editProfile');
+
+// Posts routes
+Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->middleware('auth')->name('showPosts');
+Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->middleware('auth')->name('showYearPosts');
