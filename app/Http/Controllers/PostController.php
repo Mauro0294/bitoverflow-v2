@@ -28,4 +28,9 @@ class PostController extends Controller
 
         return view('posts', ['posts' => $posts, 'tag' => 'All']);
     }
+    public function showPost($id) {
+        $post = Post::whereId($id)->first();
+
+        return view('post', ['post' => $post]);
+    }
 }

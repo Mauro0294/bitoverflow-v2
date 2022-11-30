@@ -29,21 +29,10 @@ Route::get('/home', function() {
 
     $postsCount = Post::count();
 
-    $tags = Post::all();
-    $tagsCount = [];
-    foreach ($tags as $tag) {
-        $tagsCount[$tag->tag] = 0;
-    }
-    foreach ($tags as $tag) {
-        $tagsCount[$tag->tag]++;
-    }
-    $mostUsedTag = array_search(max($tagsCount), $tagsCount);
-
-    $tagsCount[$mostUsedTag] = 0;
-    $secondMostUsedTag = array_search(max($tagsCount), $tagsCount);
-
-    $tagsCount[$secondMostUsedTag] = 0;
-    $thirdMostUsedTag = array_search(max($tagsCount), $tagsCount);
+    $tags = Post::select('tag', Post::raw('count(*) as total'))->groupBy('tag')->orderBy('total', 'desc')->get();
+    $mostUsedTag = $tags[0]->tag;
+    $secondMostUsedTag = $tags[1]->tag;
+    $thirdMostUsedTag = $tags[2]->tag;
 
     return view('home', ['user' => $user, 'lastPost' => $lastPost, 'lastPostUser' => $lastPostUser, 'postsCount' => $postsCount, 'mostUsedTag' => $mostUsedTag, 'secondMostUsedTag' => $secondMostUsedTag, 'thirdMostUsedTag' => $thirdMostUsedTag]);
 })->middleware('auth')->name('home');
@@ -64,3 +53,4 @@ Route::post('profile/edit', [ProfileController::class, 'edit'])->middleware('aut
 Route::get('posts', [PostController::class, 'showAllPosts'])->middleware('auth')->name('showAllPosts');
 Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->middleware('auth')->name('showPosts');
 Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->middleware('auth')->name('showYearPosts');
+Route::get('post/{id}', [PostController::class, 'showPost'])->middleware('auth')->name('showPost');
