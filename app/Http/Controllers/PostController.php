@@ -20,7 +20,12 @@ class PostController extends Controller
         foreach ($postsUser as $postUser) {
             $posts[] = Post::whereUser_id($postUser->id)->get();
         }
-        
+
         return view('posts', ['posts' => $posts, 'tag' => $tag]);
+    }
+    public function showAllPosts() {
+        $posts = Post::all();
+
+        return view('posts', ['posts' => $posts, 'tag' => 'All']);
     }
 }
