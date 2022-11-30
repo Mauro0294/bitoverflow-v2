@@ -61,5 +61,6 @@ Route::get('profile', [ProfileController::class, 'show'])->middleware('auth')->n
 Route::post('profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('editProfile');
 
 // Posts routes
+Route::get('posts', [PostController::class, 'showAllPosts'])->middleware('auth')->name('showAllPosts');
 Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->middleware('auth')->name('showPosts');
 Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->middleware('auth')->name('showYearPosts');
