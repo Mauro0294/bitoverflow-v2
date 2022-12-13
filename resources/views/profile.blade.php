@@ -75,7 +75,7 @@
                         <textarea name="biography" id="biography" cols="30" rows="10" class='bg-[#202020] lg:w-[600px] lg:h-[130px] rounded-2xl px-2.5 py-1.5 mb-4'>{{ $user->biography }}</textarea>
                         <input type="submit" name="submit" value="Change" class='bg-white rounded-3xl text-black text-xl py-2 px-12 cursor-pointer mb-5 lg:mb-0'>
                         <div class='absolute right-24 top-24 hidden lg:block'>
-                            <img src='/images/big_profile.png' class='rounded-full w-48 h-48'>
+                            <img src='images/big_profile.png' class='rounded-full w-48 h-48'>
                             <p class='text-center mt-4'>{{ $user->first_name }} {{ $user->last_name }}</p>
                         </div>
                     </form>
@@ -91,7 +91,7 @@
                 <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
 
                 <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 mb-20 rounded-3xl flex w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
-                    <div class='mr-8 hidden lg:block'><img src='/images/profile.png' class='rounded-full'></div>
+                    <div class='mr-8 hidden lg:block'><img src='images/profile.png' class='rounded-full'></div>
                     <div>
                         <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
                                 <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>

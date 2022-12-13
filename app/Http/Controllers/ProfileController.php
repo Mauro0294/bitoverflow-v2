@@ -31,7 +31,13 @@ class ProfileController extends Controller
             $user->email = $request->email;
         }
 
-        $user->school_year = $request->school_year ?? $user->school_year;
+        if ($request->school_year != $user->school_year) {
+            $request->validate([
+                'school_year' => 'integer|min:1|max:3',
+            ]);
+            $user->school_year = $request->school_year;
+        }
+
         $user->biography = $request->biography;
         $user->save();
         return back();

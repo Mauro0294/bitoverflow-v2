@@ -40,7 +40,7 @@ class AuthController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:users',
-            'school_year' => 'required|integer',
+            'school_year' => 'requred|integer|min:1|max:3',
             'password' => 'required|min:6',
         ]);
            
