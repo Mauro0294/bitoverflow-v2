@@ -9,7 +9,7 @@ use App\Models\User;
 
 // Non-login routes
 Route::get('/', function() {
-    return redirect('login');
+    return view('index');
 });
 
 // Authentication routes
