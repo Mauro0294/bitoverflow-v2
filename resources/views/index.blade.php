@@ -17,9 +17,15 @@
     </nav>
     <section class='mx-auto w-[850px] font-bold mt-32'>
         <h2 class='text-7xl text-white text-center'>Betere code schrijf je,<br /> <span class='text-transparent bg-clip-text bg-gradient-to-br from-[#647DEE] to-[#7F53AC]'>samen</span></h2>
-        <p class='text-[#9BA3C7] text-center w-[500px] mx-auto mt-9'>Leer van elkaar, Op Bit-Overflow leer je van medestudenten. Je leert van studenten die precies weten hoe de opdracht in elkaar steekt.</p>
-        <div>
-            <a href="{{ route('login') }}"><button class='bg-white px-4 py-2 rounded-full text-black text-lg'>Get Started</button></a>
+        <p class='text-[#9BA3C7] text-center w-[535px] mx-auto mt-9'>Leer van elkaar, Op Bit-Overflow leer je van medestudenten. Je leert van studenten die precies weten hoe de opdracht in elkaar steekt.</p>
+        <div class='flex justify-center mt-12'>
+            <a href="{{ route('login') }}">
+                <button class='bg-white px-4 py-2 rounded-full text-black text-lg flex justify-center items-center'>
+                    Get Started
+                    <img src='icons/arrow2.svg' class='inline ml-2'>
+                </button>
+            </a>
+            <a href="{{ route('login') }}" class='flex ml-12'><button class='text-white'>Wie zijn wij?</button></a>
         </div>
     </section>
 </body>
