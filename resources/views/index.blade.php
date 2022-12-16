@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class='flex mt-12'>
+        <div class='flex mt-12 mb-24'>
             <div class='hidden lg:flex h-[95px] w-[95px] mr-12 rounded-full justify-center items-center bg-white bg-gradient-to-r from-[#647DEE] to-[#7F53AC]'>
                 <img src='icons/settings.svg'>
             </div>
@@ -56,6 +56,15 @@
                 <p class='lg:w-[400px]'>Bekijk eerder gestelde vragen zodat je niet jou vraag eventueel opnieuw hoeft te stellen.</p>
                 </div>
             </div>
+        </div>
+        <div class="flex font-bold">
+            <a href="{{ route('login') }}">
+                <button class='bg-white px-4 py-2 rounded-full text-black lg:text-lg flex justify-center items-center'>
+                    Get Started
+                    <img src='icons/arrow2.svg' class='hidden lg:inline ml-2'>
+                </button>
+            </a>
+            <a href="{{ route('login') }}" class='flex ml-12'><button class='text-white'>Wat vinden studenten?</button></a>
         </div>
     </section>
 </body>
