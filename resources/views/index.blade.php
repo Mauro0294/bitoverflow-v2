@@ -36,25 +36,30 @@
         </section>
     </div>
     <section class='bg-[#1F1F1F] text-white mt-40 py-8 px-4 lg:p-24'>
-        <h2 class='text-3xl lg:text-5xl font-bold'>Zeker weten dat je de juiste hulp krijgt</h2>
-        <div class='flex mt-12'>
-            <div class='mr-12 h-[95px] w-[95px] hidden lg:flex rounded-full justify-center items-center bg-white bg-gradient-to-r from-[#647DEE] to-[#7F53AC]'>
-                <img src='icons/people.svg'>
-            </div>
+        <h2 class='text-3xl lg:text-5xl font-bold w-[600px]'>Zeker weten dat je de juiste hulp krijgt</h2>
+        <div class='flex justify-between'>
             <div>
-                <h2 class='font-bold text-lg mb-2'>Meer dan 100 klasgenoten</h2>
-                <p class='lg:w-[400px]'>Je krijgt altijd antwoord op jou vraag door studenten die eventueel meer kennis hebben dan jij of de exercise al gemaakt hebben.</p>
+                <div class='flex mt-12'>
+                    <div class='mr-12 h-[95px] w-[95px] hidden lg:flex rounded-full justify-center items-center bg-white bg-gradient-to-r from-[#647DEE] to-[#7F53AC]'>
+                        <img src='icons/people.svg'>
+                    </div>
+                    <div>
+                        <h2 class='font-bold text-lg mb-2'>Meer dan 100 klasgenoten</h2>
+                        <p class='lg:w-[400px]'>Je krijgt altijd antwoord op jou vraag door studenten die eventueel meer kennis hebben dan jij of de exercise al gemaakt hebben.</p>
+                    </div>
+                </div>
+                <div class='flex mt-12 mb-24'>
+                    <div class='hidden lg:flex h-[95px] w-[95px] mr-12 rounded-full justify-center items-center bg-white bg-gradient-to-r from-[#647DEE] to-[#7F53AC]'>
+                        <img src='icons/settings.svg'>
+                    </div>
+                    <div>
+                        <h2 class='font-bold text-lg mb-2'>Hulp met ervaring</h2>
+                        <p class='lg:w-[400px]'>Bekijk eerder gestelde vragen zodat je niet jou vraag eventueel opnieuw hoeft te stellen.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class='flex mt-12 mb-24'>
-            <div class='hidden lg:flex h-[95px] w-[95px] mr-12 rounded-full justify-center items-center bg-white bg-gradient-to-r from-[#647DEE] to-[#7F53AC]'>
-                <img src='icons/settings.svg'>
-            </div>
             <div>
-                <h2 class='font-bold text-lg mb-2'>Hulp met ervaring</h2>
-                <p class='lg:w-[400px]'>Bekijk eerder gestelde vragen zodat je niet jou vraag eventueel opnieuw hoeft te stellen.</p>
-                </div>
+                <img src='images/frame.png'>
             </div>
         </div>
         <div class="flex font-bold">
