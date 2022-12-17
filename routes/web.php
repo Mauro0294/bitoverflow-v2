@@ -9,7 +9,33 @@ use App\Models\User;
 
 // Non-login routes
 Route::get('/', function() {
-    return view('index');
+    $reviews = [
+        [
+            'img_src' => 'images/avatar.png',
+            'full_name' => 'Dave Havelaar',
+            'school_year' => 'Derde jaars',
+            'about' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac vestibulum metus. Vivamus vel lacus varius. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit.',
+        ],
+        [
+            'img_src' => 'images/avatar2.png',
+            'full_name' => 'Simon Sandberg',
+            'school_year' => 'Tweede jaars',
+            'about' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac vestibulum metus. Vivamus vel lacus varius. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit.',
+        ],
+        [
+            'img_src' => 'images/avatar3.png',
+            'full_name' => 'Xander Havelaar',
+            'school_year' => 'Eerste jaars',
+            'about' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac vestibulum metus. Vivamus vel lacus varius. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit.',
+        ],
+        [
+            'img_src' => 'images/avatar4.png',
+            'full_name' => 'Mauro Scheltens',
+            'school_year' => 'Derde jaars',
+            'about' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac vestibulum metus. Vivamus vel lacus varius. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit.',
+        ],
+    ];
+    return view('index', ['reviews' => $reviews]);
 });
 
 // Authentication routes

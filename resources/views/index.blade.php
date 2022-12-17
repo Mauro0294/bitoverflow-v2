@@ -36,7 +36,7 @@
         </section>
     </div>
     <section class='bg-[#1F1F1F] text-white mt-40 py-8 px-4 lg:p-24'>
-        <h2 class='text-3xl lg:text-5xl font-bold w-[600px]'>Zeker weten dat je de juiste hulp krijgt</h2>
+        <h2 class='text-3xl lg:text-5xl font-bold lg:w-[600px]'>Zeker weten dat je de juiste hulp krijgt</h2>
         <div class='flex justify-between'>
             <div>
                 <div class='flex mt-12'>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class='hidden lg:block'>
                 <img src='images/frame.png'>
             </div>
         </div>
@@ -70,6 +70,25 @@
                 </button>
             </a>
             <a href="{{ route('login') }}" class='flex ml-12'><button class='text-white'>Wat vinden studenten?</button></a>
+        </div>
+    </section>
+    <section class='text-white font-bold mt-24 px-4 lg:px-0'>
+        <h2 class='text-center text-3xl lg:text-5xl'>Wat vinden leerlingen<br />ervan?</h2>
+        <div class='grid lg:grid-cols-2 gap-y-32 mt-24 place-items-center'>
+            @foreach ($reviews as $review)
+            <div class='bg-[#383838] text-white p-8 rounded-xl lg:w-[530px]'>
+                <div class='flex'>
+                    <img src='{{ $review['img_src'] }}'>
+                    <div class='flex flex-col justify-center ml-4'>
+                        <h3 class='text-xl'>{{ $review['full_name'] }}</h3>
+                        <p class='text-[#8C8C8C] text-sm'>{{ $review['school_year'] }}</p>
+                    </div>
+                </div>
+                <p class='mt-5'>
+                    {{ $review['about'] }}
+                </p>
+            </div>
+            @endforeach
         </div>
     </section>
 </body>
