@@ -73,7 +73,7 @@
         </div>
     </section>
     <section class='text-white font-bold mt-24 px-4 lg:px-0'>
-        <h2 class='text-center text-3xl lg:text-5xl'>Wat vinden leerlingen<br />ervan?</h2>
+        <h2 class='text-center text-3 xl lg:text-5xl'>Wat vinden leerlingen<br />ervan?</h2>
         <div class='grid lg:grid-cols-2 gap-y-32 mt-24 place-items-center'>
             @foreach ($reviews as $review)
             <div class='bg-[#383838] text-white p-8 rounded-xl lg:w-[530px]'>
@@ -91,5 +91,37 @@
             @endforeach
         </div>
     </section>
+    <section class='text-white mt-40 py-8 px-4 lg:p-24 font-bold'>
+        <h2 class='text-5xl'>Alleen de talen die jij nodig hebt</h2>
+        <div class='flex'>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac vestibulum metus. Vivamus vel lacus varius. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit. Ut urna augue, viverra vel ex nec, aliquam scelerisque elit.</p>
+                <div class="flex font-bold">
+                    <a href="{{ route('login') }}">
+                        <button class='bg-white px-4 py-2 rounded-full text-black lg:text-lg flex justify-center items-center'>
+                            Get Started
+                            <img src='icons/arrow2.svg' class='hidden lg:inline ml-2'>
+                        </button>
+                    </a>
+                    <a href="{{ route('login') }}" class='flex ml-12'><button class='text-white'>Wat vinden studenten?</button></a>
+                </div>
+            </div>
+            <div>
+                <p>Image</p>
+            </div>
+        </div>
+    </section>
+    <footer class='bg-[#1F1F1F] p-4 lg:px-24 lg:py-16 flex items-center justify-between w-full'>
+        <div class='text-white font-bold'>
+            <h2 class='text-lg lg:text-4xl'>Bit Overflow</h2>
+            <p class='text-[#D8D8D8]'>2022</p>
+        </div>
+        <a href="{{ route('login') }}">
+            <button class='bg-white px-6 py-2 rounded-full text-black lg:text-lg flex justify-center items-center font-bold'>
+                Login
+                <img src='icons/arrow2.svg' class='hidden lg:inline ml-2'>
+            </button>
+        </a>
+    </footer>
 </body>
 </html>
