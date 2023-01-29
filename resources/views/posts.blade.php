@@ -70,11 +70,7 @@ if (is_numeric($tag) && $posts != []) {
                             <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $post->tag }}</span>
                             <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                             <p class='text-white font-bold lg:text-xl break-all'>{{ $post->subject }}</p>
-                            <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
-                            <p class='text-white font-bold text-lg mb-8'>
-                                {{ $post->content }}
-                            </p>
-                            <div class='bg-black text-white p-4 hidden lg:block rounded-2xl'>
+                            <div class='bg-black text-white p-4 hidden mt-4 lg:block rounded-2xl'>
                                 <code>
                                     {{ htmlspecialchars($post->code) }}
                                 </code>
