@@ -25,16 +25,11 @@ Route::get('/home', function() {
 
     $lastPost = Post::orderBy('id', 'desc')->first();
 
-    $lastPostUser = User::whereId($lastPost->user_id)->first();
-
     $postsCount = Post::count();
 
     $tags = Post::select('tag', Post::raw('count(*) as total'))->groupBy('tag')->orderBy('total', 'desc')->get();
-    $mostUsedTag = $tags[0]->tag;
-    $secondMostUsedTag = $tags[1]->tag;
-    $thirdMostUsedTag = $tags[2]->tag;
 
-    return view('home', ['user' => $user, 'lastPost' => $lastPost, 'lastPostUser' => $lastPostUser, 'postsCount' => $postsCount, 'mostUsedTag' => $mostUsedTag, 'secondMostUsedTag' => $secondMostUsedTag, 'thirdMostUsedTag' => $thirdMostUsedTag]);
+    return view('home', compact('user', 'lastPost', 'postsCount', 'tags'));
 })->middleware('auth')->name('home');
 
 Route::get('/createpost', function() {

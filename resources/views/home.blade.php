@@ -61,15 +61,15 @@
                         <div>
                             <div class='flex items-center'>
                                 <span class='bg-green-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>1</span>
-                                <a href="{{ route('showPosts', ['tag' => strtolower($mostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $mostUsedTag }}</h3></a>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($tags[0]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[0]->tag }}</h3></a>
                             </div>
                             <div class='flex items-center my-7'>
                                 <span class='bg-yellow-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>2</span>
-                                <a href="{{ route('showPosts', ['tag' => strtolower($secondMostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $secondMostUsedTag }}</h3></a>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($tags[1]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[1]->tag }}</h3></a>
                             </div>
                             <div class='flex items-center'>
                                 <span class='bg-orange-600 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>3</span>
-                                <a href="{{ route('showPosts', ['tag' => strtolower($thirdMostUsedTag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $thirdMostUsedTag }}</h3></a>
+                                <a href="{{ route('showPosts', ['tag' => strtolower($tags[2]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[2]->tag }}</h3></a>
                             </div>
                         </div>
                         <div>
@@ -102,8 +102,8 @@
                     <div>
                         <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
                             <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>
-                            <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPostUser->first_name }} {{ $lastPostUser->last_name }}</p>
-                            <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPostUser->school_year }}e jaars</p>
+                            <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p>
+                            <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
                         </div>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                         <p class='text-white font-bold lg:text-xl break-all'>{{ $lastPost->subject }}</p>
