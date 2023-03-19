@@ -36,7 +36,7 @@
             </form>
 
         <div class="flex flex-col items-center">
-           <a href="{{ route('register') }}" class="text-sky-500 hover:text-sky-700 ease-in-out duration-300 cursor-pointer">Wachtwoord vergeten?</a></p>
+           <a href="{{ route('register') }}" class="text-sky-500 hover:text-sky-700 ease-in-out duration-300">Wachtwoord vergeten?</a></p>
             <p class="text-white font-light absolute bottom-4">Geen account? <a href="{{ route('register') }}" class="text-sky-500 hover:text-sky-700 ease-in-out duration-300">Registreer</a></p>
         </div>
     </body>
