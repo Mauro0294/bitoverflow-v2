@@ -26,19 +26,23 @@ class ProfileController extends Controller
 
         if ($request->email != $user->email) {
             $request->validate([
-                'email' => 'unique:users',
+                'email' => 'unique:users|email',
             ]); 
             $user->email = $request->email;
         }
 
-        if ($request->school_year != $user->school_year) {
+        if ($request->school_year != $user->school_year && $request->school_year != null) {
             $request->validate([
                 'school_year' => 'integer|min:1|max:3',
             ]);
             $user->school_year = $request->school_year;
         }
 
-        $user->biography = $request->biography;
+        if ($request->biography != null) {
+            $user->biography = $request->biography;
+        } else {
+            $user->biography = "";
+        }
         $user->save();
         return back();
     }
