@@ -20,32 +20,34 @@ Route::post('register/request', [AuthController::class, 'registerRequest'])->nam
 Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
 
 // Logged in users routes
-Route::get('/home', function() {
-    $user = Auth::user();
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function() {
+        $user = Auth::user();
 
-    $lastPost = Post::orderBy('id', 'desc')->first();
+        $lastPost = Post::orderBy('id', 'desc')->first();
 
-    $postsCount = Post::count();
+        $postsCount = Post::count();
 
-    $tags = Post::select('tag', Post::raw('count(*) as total'))->groupBy('tag')->orderBy('total', 'desc')->get();
+        $tags = Post::select('tag', Post::raw('count(*) as total'))->groupBy('tag')->orderBy('total', 'desc')->get();
 
-    return view('home', compact('user', 'lastPost', 'postsCount', 'tags'));
-})->middleware('auth')->name('home');
+        return view('home', compact('user', 'lastPost', 'postsCount', 'tags'));
+    })->name('home');
 
-Route::get('/createpost', function() {
-    return view('createPost');
-})->middleware('auth')->name('createPost');
+    Route::get('/createpost', function() {
+        return view('createPost');
+    })->name('createPost');
 
-Route::get('/posts', function() {
-    return view('allposts');
-})->middleware('auth')->name('postsIndex');
+    Route::get('/posts', function() {
+        return view('allposts');
+    })->name('postsIndex');
 
-// Profile routes
-Route::get('profile', [ProfileController::class, 'show'])->middleware('auth')->name('profile');
-Route::post('profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('editProfile');
+    // Profile routes
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile');
+    Route::post('profile/edit', [ProfileController::class, 'edit'])->name('editProfile');
 
-// Posts routes
-Route::get('posts', [PostController::class, 'showAllPosts'])->middleware('auth')->name('showAllPosts');
-Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->middleware('auth')->name('showPosts');
-Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->middleware('auth')->name('showYearPosts');
-Route::get('post/{id}', [PostController::class, 'showPost'])->middleware('auth')->name('showPost');
+    // Posts routes
+    Route::get('posts', [PostController::class, 'showAllPosts'])->name('showAllPosts');
+    Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->name('showPosts');
+    Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->name('showYearPosts');
+    Route::get('post/{id}', [PostController::class, 'showPost'])->name('showPost');
+});
