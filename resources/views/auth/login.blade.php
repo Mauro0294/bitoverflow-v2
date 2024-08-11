@@ -1,11 +1,11 @@
 <html>
     <head>
-        <script src="https://cdn.tailwindcss.com"></script>
         <title>BitOverflow | Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7528975355578904"
         crossorigin="anonymous"></script>
     </head>
@@ -32,7 +32,7 @@
                 <div class="flex">
                     <input type="password" class="rounded-full px-3 py-2 text-white outline-none bg-[#3D3D3D]" name="password" id="myInput" placeholder="Wachtwoord">
                 </div>
-                <input type='submit' class="text-white mt-12 rounded-full bg-neutral-700 ease-in-out duration-300 hover:bg-neutral-500 px-24 py-2 cursor-pointer" value="Submit">
+                <input type='submit' class="text-white mt-12 rounded-full bg-neutral-700 ease-in-out duration-300 hover:bg-neutral-500 px-20 py-2 cursor-pointer" value="Inloggen">
             </form>
 
         <div class="flex flex-col items-center">
