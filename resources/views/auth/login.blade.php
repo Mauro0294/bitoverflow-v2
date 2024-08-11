@@ -32,7 +32,7 @@
                 <div class="flex">
                     <input type="password" class="rounded-full px-3 py-2 text-white outline-none bg-[#3D3D3D]" name="password" id="myInput" placeholder="Wachtwoord">
                 </div>
-                <input type='submit' class="text-white mt-12 rounded-full bg-neutral-700 ease-in-out duration-300 hover:bg-neutral-500 px-20 py-2 cursor-pointer" value="Submit">
+                <input type='submit' class="text-white mt-12 rounded-full bg-neutral-700 ease-in-out duration-300 hover:bg-neutral-500 px-20 py-2 cursor-pointer" value="Inloggen">
             </form>
 
         <div class="flex flex-col items-center">

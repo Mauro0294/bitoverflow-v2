@@ -14,7 +14,7 @@
         <div class='px-4 lg:px-16 bg-neutral-900 py-14'>
             <h1 class='text-white text-3xl mb-10'>Jouw eigen profiel</h1>
             <div style='background-color:#383838' class='rounded-3xl text-white lg:w-[700px] p-6 relative'>
-                <form action="{{ route('editProfile') }}" class='flex flex-col inline lg:w-[250px]' method="POST">
+                <form action="{{ route('editProfile') }}" class='flex flex-col lg:w-[250px]' method="POST">
                     @csrf
                     <label for="username" class='text-xs ml-2 mb-2'>Naam</label>
                     <input style='background-color: #202020;' disabled type="text" name="username" id="username" placeholder="Naam" value="{{ $user->first_name }} {{ $user->last_name }}" class='rounded-3xl px-2.5 py-1.5 mb-4'>
