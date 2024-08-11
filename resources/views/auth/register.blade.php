@@ -53,7 +53,7 @@
             </select>
           </div>
         </div>
-        <button type='submit' name='submit' class="rounded-full bg-neutral-700 hover:bg-neutral-500 px-20 py-2 mt-16 mb-24 text-white ease-in-out duration-300">Submit</button>
+        <button type='submit' name='submit' class="rounded-full bg-neutral-700 hover:bg-neutral-500 px-20 py-2 mt-16 text-white ease-in-out duration-300">Registreren</button>
       </form>
       <div class="flex justify-center">
         <p class="mb-6 absolute lg:bottom-0 text-white cursor-default pb-6 lg:text-base text-sm">Heb je al een account? <a href="{{ route('login') }}" class="text-sky-500 hover:text-sky-700 ease-in-out duration-300">Login</a></p>
