@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Bitoverflow | Home</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     </head>
     <body class='bg-neutral-800'>
         @extends('components.layouts.app')
@@ -67,36 +61,13 @@
                         </div>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                         <p class='text-white font-bold lg:text-xl break-all'>{{ $lastPost->subject }}</p>
-                        <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
-                        <p class='text-white font-bold text-lg mb-8'>{{ $lastPost->description }}</p>
-                        <div class='bg-black text-white p-4 hidden lg:block rounded-2xl'>
-                            <code>
-                            {{ $lastPost->code }}
-                            </code>
-                        </div>
-                        <form method='POST' action="/posts/actions/vote.php">
-                            <input type="hidden" name="post_id" value=".">
-                            <input type="hidden" name="post_user_id" value=".">
-                            <input type="hidden" name="user_id" value=".">
-                            <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                                <div class='flex'>
-                                    <button type='submit' name='upvote'
-                                        ><span class='w-10 h-10 lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full mr-6 ml-2' style='background: #5BFF61'><img src='icons/up_arrow.svg'></span></button>
-                                    <button type="submit" name="downvote"
-                                        ><span class='w-10 h-10 cursor-pointer lg:w-12 lg:h-12 p-2 flex items-center
-                                        justify-center font-bold text-2xl rounded-full' style='background: #FF5959'><img src='icons/down_arrow.svg'></span></button>
-                                    <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=' font-family: Poppins'><span id='operator'></span>
-                                    </span>
-                                </div>
-                                <div class='flex'>
-                                    <span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black uppercase text-2xl'>Antwoord</button></span>
-                                    <span class='w-10 h-10 flex items-center justify-center font-bold rounded-full ml-2 bg-white block lg:hidden'><img class='w-5' src='icons/chat.svg'></span>
-                                </div>
+                            <div class='flex mt-8'>
+                                <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black font-bold uppercase text-2xl'>Bekijk</button></span></a>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-                <div class='w-full block lg:hidden mt-8 flex justify-center'>
+                <div class='w-full lg:hidden mt-8 flex justify-center'>
                     <a href="{{ route('logout') }}"><button class='text-sm lg:text-lg text-white px-4 py-2 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
                 </div>
             </div>
@@ -104,8 +75,3 @@
         @endsection
     </body>
 </html>
-<style>
-    * {
-    font-family: 'Montserrat', sans-serif;
-    }
-</style>

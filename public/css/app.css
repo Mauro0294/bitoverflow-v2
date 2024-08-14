@@ -5,6 +5,10 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 *,
 ::before,
 ::after {
@@ -671,9 +675,6 @@ video {
 .w-48 {
   width: 12rem;
 }
-.w-5 {
-  width: 1.25rem;
-}
 .w-\[200px\] {
   width: 200px;
 }
@@ -718,6 +719,9 @@ video {
 }
 .gap-4 {
   gap: 1rem;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 .break-all {
   word-break: break-all;
@@ -1085,6 +1089,10 @@ video {
 
   .lg\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .lg\:mb-12 {
+    margin-bottom: 3rem;
   }
 
   .lg\:ml-4 {
