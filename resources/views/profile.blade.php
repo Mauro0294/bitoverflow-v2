@@ -70,17 +70,15 @@
                             {{ $lastPost->code }}
                         </code>
                     </div>
-                    <form method='POST'>
-                        <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                            <div class='flex'>
-                                <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=''><span id='operator'></span>
-                                </span>
-                            </div>
-                            <div class='flex'>
-                                <span class='hidden lg:block'><button class='bg-gray-200 py-1 px-8 rounded-2xl text-black uppercase text-2xl'>Antwoord</button></span>
-                                <span class='w-10 h-10 flex items-center justify-center font-bold rounded-full ml-2 bg-white block lg:hidden'><img class='w-5' src='icons/chat.svg'></span>
-                            </div>
+                    <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
+                        <div class='flex'>
+                            <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=''><span id='operator'></span>
+                            </span>
                         </div>
+                        <div>
+                            <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black font-bold uppercase text-2xl'>Bekijk</button></span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,9 +98,3 @@
     @endsection
 </body>
 </html>
-
-<style>
-    * {
-      font-family: 'Montserrat', sans-serif;
-    }
-</style>

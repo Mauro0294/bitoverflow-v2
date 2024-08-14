@@ -21,6 +21,10 @@ Route::get('logout', [AuthController::class, 'logOut'])->name('logout');
 
 // Logged in users routes
 Route::middleware(['auth'])->group(function () {
+    Route::get('/', function() {
+        return redirect('home');
+    });
+
     Route::get('/home', function() {
         $user = Auth::user();
 
