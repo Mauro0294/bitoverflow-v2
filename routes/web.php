@@ -50,4 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->name('showPosts');
     Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->name('showYearPosts');
     Route::get('post/{id}', [PostController::class, 'showPost'])->name('showPost');
+
+    Route::get('admin', [AdminController::class, 'show'])->name('admin');
 });
