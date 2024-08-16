@@ -30,7 +30,8 @@ class PostController extends Controller
     }
     public function showPost($id) {
         $post = Post::whereId($id)->first();
+        $comments = $post->comments;
 
-        return view('post', ['post' => $post]);
+        return view('post', ['post' => $post, 'comments' => $comments]);
     }
 }

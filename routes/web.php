@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use App\Models\Post;
 use App\Models\User;
 
@@ -54,4 +55,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('posts/{tag}', [PostController::class, 'showTagPost'])->name('showPosts');
     Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->name('showYearPosts');
     Route::get('post/{id}', [PostController::class, 'showPost'])->name('showPost');
+
+    Route::post('comments/store', [CommentController::class, 'store'])->name('storeComment');
+    Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('destroyComment');
+
+    Route::post('/comment/{id}/like', [CommentController::class, 'like'])->name('likeComment');
+    Route::post('/comment/{id}/dislike', [CommentController::class, 'dislike'])->name('dislikeComment');
 });
