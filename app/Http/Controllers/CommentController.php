@@ -40,15 +40,18 @@ class CommentController extends Controller
     {
         $comment = Comment::find($id);
 
+        // If the user has already liked the comment, delete the like
         if ($comment->likes()->where('user_id', Auth::user()->id)->exists()) {
             $comment->likes()->where('user_id', Auth::user()->id)->delete();
             return redirect()->back();
         }
 
+        // If the user has disliked the comment, delete the dislike
         if ($comment->dislikes()->where('user_id', Auth::user()->id)->exists()) {
             $comment->dislikes()->where('user_id', Auth::user()->id)->delete();
         }
 
+        // Create a new like
         Like::create([
             'user_id' => Auth::user()->id,
             'post_id' => $comment->post->id,
@@ -63,15 +66,18 @@ class CommentController extends Controller
     {
         $comment = Comment::find($id);
 
+        // If the user has already disliked the comment, delete the dislike
         if ($comment->dislikes()->where('user_id', Auth::user()->id)->exists()) {
             $comment->dislikes()->where('user_id', Auth::user()->id)->delete();
             return redirect()->back();
         }
 
+        // If the user has liked the comment, delete the like
         if ($comment->likes()->where('user_id', Auth::user()->id)->exists()) {
             $comment->likes()->where('user_id', Auth::user()->id)->delete();
         }
 
+        // Create a new dislike
         Dislike::create([
             'user_id' => Auth::user()->id,
             'post_id' => $comment->post->id,

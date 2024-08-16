@@ -8,6 +8,7 @@
     @extends('components.layouts.app')
     @section('content')
         <div class='px-4 lg:pl-16 pt-8 bg-neutral-900 pb-12 md:pb-48 w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+            <!-- Post Section -->
             <h2 class='text-white  text-2xl lg:text-4xl mb-6 mt-6'>Bekijk post</h2>
             <div class="w-2/3">
                 <div class='my-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
@@ -68,7 +69,7 @@
                     </form>
                 </div>
 
-
+                <!-- Comments Section -->
                 @if ($comments->count() > 0)
                 <h2 class="text-white text-3xl font-bold mt-12 mb-8">Comments</h2>
                 @endif
@@ -105,6 +106,7 @@
                             @endif
                         </div>
                     </div>
+                    <!-- Comment Content -->
                     <div class="w-full">
                         <div class='pb-2 mb-2' style='border-color: #606060;'>
                             <div class="flex justify-between items-center">
