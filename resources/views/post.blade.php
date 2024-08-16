@@ -23,34 +23,22 @@
                         </div>
                         <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $post->tag }}</span>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
-                        <p class='text-white font-bold lg:text-xl break-all'>{{ $post->subject }}</p>
+                        <p class='text-white font-bold lg:text-xl'>{{ $post->subject }}</p>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
-                        <p class='text-white font-bold lg:text-xl break-all'>{{ $post->description }}</p>
+                        <p class='text-white font-bold lg:text-xl'>{{ $post->description }}</p>
                         <div class='bg-black text-white p-4 hidden mt-4 lg:block rounded-2xl'>
                             <pre><code class="language-{{ $post->tag }}">{{ $post->code }}</code></pre>
                         </div>
-                        <form method='POST' action="/posts/actions/vote.php">
-                            <input type="hidden" name="post_id">
-                            <input type="hidden" name="post_user_id">
-                            <input type="hidden" name="user_id">
-                            <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                                <div class='flex'>
-                                    <button type='submit' name='upvote' disabled>
-                                    <span class='w-10 h-10 lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full mr-6 ml-2' style='background: #5BFF61'><img src='/icons/up_arrow.svg'></span></button>
-                                    <button type="submit" name="downvote" disabled><span class='w-10 h-10 cursor-pointer lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full' style='background: #FF5959'><img src='/icons/down_arrow.svg'></span></button>
-                                    <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=' font-family: Poppins'><span id='operator'></span>
-                                    </span>
-                                </div>
-                                <div class='flex'>
-                                    <span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black uppercase text-2xl transition'>REAGEER</button></span>
-                                </div>
+                        <div class='w-full flex justify-between items-center mt-12 text-lg font-bold'>
+                            <div class='flex'>
+                                <span class='hidden lg:block'><a href="#commentForm"><button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300'>Reageer</button></a></span>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Comment Form Section -->
-                <div class='my-6 bg-neutral-700 text-white py-8 px-7 rounded-3xl w-full'>
+                <div class='my-6 bg-neutral-700 text-white py-8 px-7 rounded-3xl w-full' id="commentForm">
                     <h3 class='text-2xl font-bold mb-4'>Plaats een reactie</h3>
                     <form method='POST' action="{{ route('storeComment') }}">
                         @csrf
