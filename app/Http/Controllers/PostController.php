@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -30,7 +31,28 @@ class PostController extends Controller
     }
     public function showPost($id) {
         $post = Post::whereId($id)->first();
+        $comments = $post->comments;
 
-        return view('post', ['post' => $post]);
+        return view('post', ['post' => $post, 'comments' => $comments]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'code' => 'required',
+            'tag' => 'required'
+        ]);
+
+        $post = new Post();
+        $post->subject = $request->title;
+        $post->description = $request->description;
+        $post->code = $request->code;
+        $post->tag = $request->tag;
+        $post->user_id = Auth::id();
+        $post->save();
+
+        return redirect()->route('showPost', ['id' => $post->id]);
     }
 }

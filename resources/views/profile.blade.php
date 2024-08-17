@@ -33,7 +33,7 @@
                     <input style='background-color: #202020;' type="text" name="img_url" disabled id="profile_picture_url" class='rounded-3xl px-2.5 py-1.5 mb-4'>
                     <label for="biography" class='ml-2 mb-2 text-xs'>Biografie</label>
                     <textarea name="biography" id="biography" cols="30" rows="10" class='bg-[#202020] lg:w-[600px] lg:h-[130px] rounded-2xl px-2.5 py-1.5 mb-4'>{{ $user->biography }}</textarea>
-                    <input type="submit" name="submit" value="Change" class='bg-white rounded-3xl text-black text-xl py-2 px-12 cursor-pointer mb-5 lg:mb-0'>
+                    <input type="submit" name="submit" value="Verander" class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 cursor-pointer text-lg'>
                     <div class='absolute right-24 top-24 hidden lg:block'>
                         <img src='images/big_profile.png' class='rounded-full w-48 h-48'>
                         <p class='text-center mt-4'>{{ $user->first_name }} {{ $user->last_name }}</p>
@@ -50,37 +50,23 @@
 
             <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
 
-            <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 mb-20 rounded-3xl flex w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
-                <div class='mr-8 hidden lg:block'><img src='images/profile.png' class='rounded-full'></div>
+            <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[900px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+                <div class='mr-8 hidden lg:block'>
+                    <img src='images/profile.png' class='w-24 rounded-3xl'>
+                </div>
                 <div>
                     <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
                         <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>
-                        <p class='text-white font-bold text-xl lg:text-2xl'>{{ $user->first_name }} {{ $user->last_name }}</p>
-                        <p class='text-zinc-500 font-bold text-xs'>{{ $user->school_year }}e jaars</p>
+                        <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p>
+                        <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
                     </div>
-                    <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">
-                        {{ $lastPost->tag }}
-                    </span>
-                    <p class='text-zinc-500 font-bold text-xs mt-6'>Onderwerp:</p>
-                    <p class='text-white font-bold lg:text-xl break-all'>{{ $lastPost->subject }}</p>
-                    <p class='text-zinc-500 font-bold text-xs mt-6'>Beschrijving:</p>
-                    <p class='text-white font-bold text-lg mb-8'>{{ $lastPost->description }}</p>
-                    <div class='bg-black text-white p-4 hidden lg:block rounded-2xl'>
-                        <code>
-                            {{ $lastPost->code }}
-                        </code>
-                    </div>
-                    <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                        <div class='flex'>
-                            <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=''><span id='operator'></span>
-                            </span>
-                        </div>
-                        <div>
-                            <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black font-bold uppercase text-2xl'>Bekijk</button></span></a>
+                    <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
+                    <p class='text-white font-bold lg:text-xl'>{{ $lastPost->subject }}</p>
+                        <div class='flex mt-8'>
+                            <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Bekijk</button></span></a>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
          <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
             <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>

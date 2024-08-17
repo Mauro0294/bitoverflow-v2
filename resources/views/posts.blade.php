@@ -28,18 +28,9 @@ if (is_numeric($tag) && $posts != []) {
                         </div>
                         <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $post->tag }}</span>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
-                        <p class='text-white font-bold lg:text-xl break-all'>{{ $post->subject }}</p>
-                        <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                            <div class='flex'>
-                                <button type='submit' name='upvote' disabled>
-                                <span class='w-10 h-10 lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full mr-6 ml-2' style='background: #5BFF61'><img src='/icons/up_arrow.svg'></span></button>
-                                <button type="submit" name="downvote" disabled><span class='w-10 h-10 cursor-pointer lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full' style='background: #FF5959'><img src='/icons/down_arrow.svg'></span></button>
-                                <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=' font-family: Poppins'><span id='operator'></span>
-                                </span>
-                            </div>
-                            <div>
-                                <a href="{{ route('showPost', ['id' => $post->id]) }}"><span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black font-bold uppercase text-2xl'>Bekijk</button></span></a>
-                            </div>
+                        <p class='text-white font-bold lg:text-xl'>{{ $post->subject }}</p>
+                        <div class="mt-12">
+                            <a href="{{ route('showPost', ['id' => $post->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-lg text-white font-bold py-2 px-6 rounded-md transition duration-300'>Bekijk</button></span></a>
                         </div>
                     </div>
                 </div>
