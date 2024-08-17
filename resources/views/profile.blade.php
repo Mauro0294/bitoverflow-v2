@@ -42,8 +42,8 @@
             </div>
             <h2 class='text-white text-3xl pt-16 pb-8'>Een kijkje in je statistieken</h2>
             <div style='background: #383838;' class='mb-16 flex flex-col lg:flex-row justify-between lg:px-32 text-white py-16 rounded-3xl text-xl'>
-                <p class='text-center'>TODO<br /> upvotes<br />gekregen</p>
-                <p class='text-center my-12 lg:my-0'>TODO<br />reacties<br />geplaatst</span></p>
+                <p class='text-center'>{{ $likes }}<br /> @if ($likes == 1) like @else likes @endif<br />gekregen</p>
+                <p class='text-center my-12 lg:my-0'>{{ $comments }}<br /> @if ($comments = 1) reactie @else reacties @endif<br />geplaatst</span></p>
                 <p class='text-center'>{{ $postsCount }}<br /> 
                     @if ($postsCount == 1) vraag @else vragen @endif<br />gesteld</p>
             </div>
@@ -67,20 +67,19 @@
                         </div>
                     </div>
                 </div>
-        </div>
-         <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
-            <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>
-            <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>IN DE AFGELOPEN 24 UUR</h3>
-            <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>1</span></div>
-            <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Mauro Scheltens</h3>
-            <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 8 LEERLINGEN</h3>
-            <div class='flex justify-center items-center'><span class='bg-yellow-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>2</span></div>
-            <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Kasper Ligthart</h3>
-            <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 5 LEERLINGEN</h2>
+            </div>
+            <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>
+                <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>1</span></div>
+                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Mauro Scheltens</h3>
+                <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 8 LEERLINGEN</h3>
+                <div class='flex justify-center items-center'><span class='bg-yellow-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>2</span></div>
+                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Kasper Ligthart</h3>
+                <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 5 LEERLINGEN</h2>
                 <div class='flex justify-center items-center'><span class='bg-orange-600 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>3</span></div>
                 <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Jean Kalo</h3>
                 <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500''>HIELP 3 LEERLINGEN</h2>
-        </div>
+            </div>
     @endsection
 </body>
 </html>
