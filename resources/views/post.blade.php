@@ -51,9 +51,7 @@
                             <textarea id='code' name='code' rows='6' class='w-full px-4 py-3 text-white bg-neutral-800 border border-neutral-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500' placeholder='Plak hier je code...'></textarea>
                         </div>
                         <input type="hidden" name="post_id" value="{{ $post->id }}">
-                        <div class='flex justify-end'>
-                            <button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300'>Verstuur</button>
-                        </div>
+                        <button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Verstuur</button>
                     </form>
                 </div>
 
@@ -103,8 +101,8 @@
                             </div>
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $comment->user->school_year }}e jaars</p>
                         </div>
-                        <p class='text-[#cbced1] lg:text-lg break-all py-2'>{{ $comment->description }}</p>
-                        <pre><code class="language-php">{{ $comment->code }}</code></pre>
+                        <p class='text-[#cbced1] lg:text-lg py-2'>{{ $comment->description }}</p>
+                        <pre><code class="language-{{ $post->tag }}">{{ $comment->code }}</code></pre>
 
                         <!-- Delete Button for Authenticated User -->
                         @if (Auth::check() && Auth::id() === $comment->user_id)

@@ -21,7 +21,7 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->description = $request->description;
         $comment->code = $request->code;
-        $comment->user_id = Auth::user()->id;
+        $comment->user_id = Auth::id();
         $comment->post_id = $request->post_id;
         $comment->save();
 
@@ -41,19 +41,19 @@ class CommentController extends Controller
         $comment = Comment::find($id);
 
         // If the user has already liked the comment, delete the like
-        if ($comment->likes()->where('user_id', Auth::user()->id)->exists()) {
-            $comment->likes()->where('user_id', Auth::user()->id)->delete();
+        if ($comment->likes()->where('user_id', Auth::id())->exists()) {
+            $comment->likes()->where('user_id', Auth::id())->delete();
             return redirect()->back();
         }
 
         // If the user has disliked the comment, delete the dislike
-        if ($comment->dislikes()->where('user_id', Auth::user()->id)->exists()) {
-            $comment->dislikes()->where('user_id', Auth::user()->id)->delete();
+        if ($comment->dislikes()->where('user_id', Auth::id())->exists()) {
+            $comment->dislikes()->where('user_id', Auth::id())->delete();
         }
 
         // Create a new like
         Like::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
             'post_id' => $comment->post->id,
             'comment_id' => $comment->id,
             'liked' => true
@@ -67,19 +67,19 @@ class CommentController extends Controller
         $comment = Comment::find($id);
 
         // If the user has already disliked the comment, delete the dislike
-        if ($comment->dislikes()->where('user_id', Auth::user()->id)->exists()) {
-            $comment->dislikes()->where('user_id', Auth::user()->id)->delete();
+        if ($comment->dislikes()->where('user_id', Auth::id())->exists()) {
+            $comment->dislikes()->where('user_id', Auth::id())->delete();
             return redirect()->back();
         }
 
         // If the user has liked the comment, delete the like
-        if ($comment->likes()->where('user_id', Auth::user()->id)->exists()) {
-            $comment->likes()->where('user_id', Auth::user()->id)->delete();
+        if ($comment->likes()->where('user_id', Auth::id())->exists()) {
+            $comment->likes()->where('user_id', Auth::id())->delete();
         }
 
         // Create a new dislike
         Dislike::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
             'post_id' => $comment->post->id,
             'comment_id' => $comment->id,
             'liked' => false
