@@ -31,9 +31,17 @@ class PostController extends Controller
     }
     public function showPost($id) {
         $post = Post::whereId($id)->first();
+        
+        $tag = $post->tag;
+
+        if ($post->tag === 'Laravel') {
+            $tag = 'PHP';
+        }
+
+
         $comments = $post->comments;
 
-        return view('post', ['post' => $post, 'comments' => $comments]);
+        return view('post', ['post' => $post, 'comments' => $comments, 'tag' => $tag]);
     }
 
     public function store(Request $request)
@@ -54,5 +62,13 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('showPost', ['id' => $post->id]);
+    }
+
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->route('showAllPosts');
     }
 }

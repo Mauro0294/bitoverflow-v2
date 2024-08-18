@@ -21,18 +21,25 @@
                             <p class='text-white font-bold text-xl lg:text-2xl'>{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $post->user->school_year }}e jaars</p>
                         </div>
-                        <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $post->tag }}</span>
+                        <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $tag }}</span>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                         <p class='text-white font-bold lg:text-xl'>{{ $post->subject }}</p>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
                         <p class='text-white font-bold lg:text-xl'>{{ $post->description }}</p>
                         <div class='bg-black text-white p-4 hidden mt-4 lg:block rounded-2xl'>
-                            <pre><code class="language-{{ $post->tag }}">{{ $post->code }}</code></pre>
+                            <pre><code class="language-{{ $tag }}">{{ $post->code }}</code></pre>
                         </div>
-                        <div class='w-full flex justify-between items-center mt-12 text-lg font-bold'>
+                        <div class='w-full flex items-center mt-12 text-lg font-bold'>
                             <div class='flex'>
                                 <span class='hidden lg:block'><a href="#commentForm"><button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300'>Reageer</button></a></span>
                             </div>
+                            @if (Auth::check() && Auth::id() === $post->user_id)
+                            <form method="POST" action="{{ route('destroyPost', $post->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg ml-4">Verwijder post</button>
+                            </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -102,7 +109,7 @@
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $comment->user->school_year }}e jaars</p>
                         </div>
                         <p class='text-[#cbced1] lg:text-lg py-2'>{{ $comment->description }}</p>
-                        <pre><code class="language-{{ $post->tag }}">{{ $comment->code }}</code></pre>
+                        <pre><code class="language-{{ $tag }}">{{ $comment->code }}</code></pre>
 
                         <!-- Delete Button for Authenticated User -->
                         @if (Auth::check() && Auth::id() === $comment->user_id)

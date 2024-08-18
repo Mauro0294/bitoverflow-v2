@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('posts/year/{year}', [PostController::class, 'showYearPost'])->name('showYearPosts');
     Route::get('post/{id}', [PostController::class, 'showPost'])->name('showPost');
     Route::post('posts/store', [PostController::class, 'store'])->name('storePost');
+    Route::delete('posts/{id}', [PostController::class, 'destroy'])->name('destroyPost');
 
     Route::post('comments/store', [CommentController::class, 'store'])->name('storeComment');
     Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('destroyComment');

@@ -48,26 +48,28 @@
                     @if ($postsCount == 1) vraag @else vragen @endif<br />gesteld</p>
             </div>
 
-            <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
+            @if ($lastPost !== null)
+                <h2 class='text-white text-3xl pb-8'>Mijn nieuwste post</h2>
 
-            <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[900px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
-                <div class='mr-8 hidden lg:block'>
-                    <img src='images/profile.png' class='w-24 rounded-3xl'>
-                </div>
-                <div>
-                    <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
-                        <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>
-                        <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p>
-                        <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
+                <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[900px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+                    <div class='mr-8 hidden lg:block'>
+                        <img src='images/profile.png' class='w-24 rounded-3xl'>
                     </div>
-                    <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
-                    <p class='text-white font-bold lg:text-xl'>{{ $lastPost->subject }}</p>
-                        <div class='flex mt-8'>
-                            <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Bekijk</button></span></a>
+                    <div>
+                        <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
+                            <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>
+                            <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p>
+                            <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
+                        </div>
+                        <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
+                        <p class='text-white font-bold lg:text-xl'>{{ $lastPost->subject }}</p>
+                            <div class='flex mt-8'>
+                                <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Bekijk</button></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
             <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
                 <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>
                 <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>1</span></div>
@@ -80,6 +82,7 @@
                 <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Jean Kalo</h3>
                 <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500''>HIELP 3 LEERLINGEN</h2>
             </div>
+        </div>
     @endsection
 </body>
 </html>
