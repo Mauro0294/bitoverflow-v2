@@ -8,7 +8,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/prism.css') }}">
     <script src="{{ asset('js/prism.js') }}"></script>
+    @livewireStyles
 </head>
 @include('components.navigation')
     @yield('content')
+    @livewireScripts
 @include('components.footer')

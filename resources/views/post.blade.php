@@ -77,25 +77,7 @@
                             <button class="opacity-50 transition-[0.3s] hover:cursor-not-allowed" disabled>👎</button>
                             @else
                             <!-- Like Form -->
-                            <form action="{{ route('likeComment', $comment->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @if ($comment->likes()->where('liked', true)->where('user_id', Auth::id())->count() > 0)
-                                <button type="submit" class="opacity-100 hover:opacity-100 transition-[0.3s]">👍</button>
-                                @else
-                                <button type="submit" class="opacity-50 hover:opacity-100 transition-[0.3s]">👍</button>
-                                @endif
-                            </form>
-                            <p class="text-2xl my-2">{{ $comment->likes()->where('liked', true)->count() - $comment->dislikes()->where('liked', false)->count() }}
-                            </p>
-                            <!-- Dislike Form -->
-                            <form action="{{ route('dislikeComment', $comment->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @if ($comment->dislikes()->where('liked', false)->where('user_id', Auth::id())->count() > 0)
-                                <button type="submit" class="opacity-100 hover:opacity-100 transition-[0.3s]">👎</button>
-                                @else
-                                <button type="submit" class="opacity-50 hover:opacity-100 transition-[0.3s]">👎</button>
-                                @endif
-                            </form>
+                            <livewire:like-dislike-comment :comment="$comment" />
                             @endif
                         </div>
                     </div>

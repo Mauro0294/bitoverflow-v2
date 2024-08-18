@@ -36,32 +36,6 @@ class CommentController extends Controller
         return redirect()->back();
     }
 
-    public function like($id)
-    {
-        $comment = Comment::find($id);
-
-        // If the user has already liked the comment, delete the like
-        if ($comment->likes()->where('user_id', Auth::id())->exists()) {
-            $comment->likes()->where('user_id', Auth::id())->delete();
-            return redirect()->back();
-        }
-
-        // If the user has disliked the comment, delete the dislike
-        if ($comment->dislikes()->where('user_id', Auth::id())->exists()) {
-            $comment->dislikes()->where('user_id', Auth::id())->delete();
-        }
-
-        // Create a new like
-        Like::create([
-            'user_id' => Auth::id(),
-            'post_id' => $comment->post->id,
-            'comment_id' => $comment->id,
-            'liked' => true
-        ]);
-
-        return redirect()->back();
-    }
-
     public function dislike($id)
     {
         $comment = Comment::find($id);
