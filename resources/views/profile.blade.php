@@ -83,6 +83,7 @@
                 <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500''>HIELP 3 LEERLINGEN</h2>
             </div>
         </div>
+    </div>
     @endsection
 </body>
 </html>
