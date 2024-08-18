@@ -41,4 +41,15 @@ class Comment extends Model
     {
         return $this->hasMany(Dislike::class)->where('liked', false);
     }
+
+    public function isLikedByUser($user)
+    {
+        return $this->likes()->where('user_id', $user->id)->exists();
+    }
+
+    // Check if the comment is disliked by the given user
+    public function isDislikedByUser($user)
+    {
+        return $this->dislikes()->where('user_id', $user->id)->exists();
+    }
 }
