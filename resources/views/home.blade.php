@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Bitoverflow | Home</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     </head>
     <body class='bg-neutral-800'>
         @extends('components.layouts.app')
@@ -37,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='bg-neutral-700 text-white py-2 px-7 hidden 2xl:block rounded-3xl lg:w-[345px] lg:h-[298px] top-40 xl:absolute right-0 mt-8 xl:mt-0 xl:mr-4' style='font-family: Poppins; box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+                <div class='bg-neutral-700 text-white py-2 px-7 hidden 2xl:block rounded-3xl lg:w-[345px] lg:h-[298px] top-40 xl:absolute right-0 mt-8 xl:mt-0 xl:mr-4' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
                     <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Bekijk alle posts</h3>
                     <h3 class='text-xl flex justify-center text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500 text-center'>VAN IEDEREEN & ELK LEERJAAR</h3>
                     <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-10 lg:ml-4 ml-2 flex items-center justify-center font-bold text-4xl rounded-full'>{{ $postsCount }}</span></div>
@@ -45,14 +39,14 @@
                     <div class='flex justify-center w-[300px]'><a href="{{ route('showAllPosts') }}" class='text-xl lg:text-2xl ml-3 font-bold pl-2 py-1 mt-8 bg-blue-900 rounded-full w-[200px] text-center cursor-pointer hover:bg-blue-700 transition duration-150 ease-out'>Bekijk</a></div>
                 </div>
                 <div class='text-white px-1 lg:px-7 rounded-3xl lg:flex justify-between items-center w-full lg:w-[900px]'>
-                    <div class='flex justify-between block lg:hidden my-10'>
+                    <div class='justify-between block lg:hidden my-10'>
                         <a href="{{ route('showAllPosts') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 2xl:hidden rounded-full h-12 mb-4 lg:mb-0 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
-                        <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-full h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
+                        <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-md h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
                     </div>
                     <h2 class='text-white font-bold text-xl lg:text-3xl my-10'>Wie is er op zoek naar hulp?</h2>
-                    <div class='flex justify-between hidden lg:block'>
+                    <div class=' justify-between hidden lg:block'>
                         <a href="{{ route('showAllPosts') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 2xl:hidden rounded-full h-12 mb-4 lg:mb-0 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
-                        <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-full h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
+                        <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-md h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
                     </div>
                 </div>
                 <div class='mt-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex lg:w-[900px]' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
@@ -66,37 +60,14 @@
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
                         </div>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
-                        <p class='text-white font-bold lg:text-xl break-all'>{{ $lastPost->subject }}</p>
-                        <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
-                        <p class='text-white font-bold text-lg mb-8'>{{ $lastPost->description }}</p>
-                        <div class='bg-black text-white p-4 hidden lg:block rounded-2xl'>
-                            <code>
-                            {{ $lastPost->code }}
-                            </code>
-                        </div>
-                        <form method='POST' action="/posts/actions/vote.php">
-                            <input type="hidden" name="post_id" value=".">
-                            <input type="hidden" name="post_user_id" value=".">
-                            <input type="hidden" name="user_id" value=".">
-                            <div class='w-full flex justify-between items-center mt-12 text-3xl font-bold'>
-                                <div class='flex'>
-                                    <button type='submit' name='upvote'
-                                        ><span class='w-10 h-10 lg:w-12 lg:h-12 p-2 flex items-center justify-center font-bold text-2xl rounded-full mr-6 ml-2' style='background: #5BFF61'><img src='icons/up_arrow.svg'></span></button>
-                                    <button type="submit" name="downvote"
-                                        ><span class='w-10 h-10 cursor-pointer lg:w-12 lg:h-12 p-2 flex items-center
-                                        justify-center font-bold text-2xl rounded-full' style='background: #FF5959'><img src='icons/down_arrow.svg'></span></button>
-                                    <span class='px-4 py-1 flex items-center justify-center font-bold text-xl lg:text-2xl rounded-3xl ml-6' id='score' style=' font-family: Poppins'><span id='operator'></span>
-                                    </span>
-                                </div>
-                                <div class='flex'>
-                                    <span class='hidden lg:block'><button class='bg-gray-200 hover:bg-gray-300 ease-in-out duration-300 py-1 px-8 rounded-2xl text-black uppercase text-2xl'>Antwoord</button></span>
-                                    <span class='w-10 h-10 flex items-center justify-center font-bold rounded-full ml-2 bg-white block lg:hidden'><img class='w-5' src='icons/chat.svg'></span>
-                                </div>
+                        <p class='text-white font-bold lg:text-xl'>{{ $lastPost->subject }}</p>
+                            <div class='flex mt-8'>
+                                <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Bekijk</button></span></a>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-                <div class='w-full block lg:hidden mt-8 flex justify-center'>
+                <div class='w-full lg:hidden mt-8 flex justify-center'>
                     <a href="{{ route('logout') }}"><button class='text-sm lg:text-lg text-white px-4 py-2 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
                 </div>
             </div>
@@ -104,8 +75,3 @@
         @endsection
     </body>
 </html>
-<style>
-    * {
-    font-family: 'Montserrat', sans-serif;
-    }
-</style>

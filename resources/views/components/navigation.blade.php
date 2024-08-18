@@ -3,8 +3,8 @@
         <h2 class='font-bold uppercase text-white text-lg lg:text-xl'>BitOverflow</h2>
     </a>
     <div class='flex'>
-        <a href="{{ route('profile') }}"><button class='text-sm lg:text-lg text-white px-4 py-1 rounded-full flex items-center font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Mijn profiel</button></a>
-        <a href="{{ route('logout') }}" class='ml-8 hidden lg:block'><button class='text-sm lg:text-lg text-white px-4 py-1 rounded-full flex items-center font-bold hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
+        <a href="{{ route('profile') }}"><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-md'>Mijn profiel</button></a>
+        <a href="{{ route('logout') }}" class='ml-8 hidden lg:block'><button class='text-white font-bold py-2 px-6 rounded-md transition text-md hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
     </div>
 </div>
 <div class='flex'>
