@@ -7,7 +7,7 @@
         <a href="{{ route('logout') }}" class='ml-8 hidden lg:block'><button class='text-white font-bold py-2 px-6 rounded-md transition text-md hover:bg-red-700 ease-in-out duration-300 bg-red-900'>Uitloggen</button></a>
     </div>
 </div>
-<div class='flex'>
+<div class='lg:flex'>
     <div class='hidden lg:block'>
         <aside class='text-white font-bold' style='width: 175px;'>
             <div class='bg-neutral-700 pl-3 uppercase'>Categorieën</div>

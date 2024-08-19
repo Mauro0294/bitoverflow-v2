@@ -10,7 +10,7 @@
         <div class='px-4 lg:pl-16 pt-8 bg-neutral-900 pb-12 md:pb-48 w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
             <!-- Post Section -->
             <h2 class='text-white  text-2xl lg:text-4xl mb-6 mt-6'>Bekijk post</h2>
-            <div class="w-2/3">
+            <div class="lg:w-2/3">
                 <div class='my-6 lg:mt-0 bg-neutral-700 text-white py-8 px-7 rounded-3xl flex w-full' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
                     <div class='mr-4 mt-3 hidden lg:block min-w-[50px]'>
                         <img src='{{ asset('images/profile.png') }}' class='rounded-full'>
@@ -26,12 +26,12 @@
                         <p class='text-white font-bold lg:text-xl'>{{ $post->subject }}</p>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Beschrijving:</p>
                         <p class='text-white font-bold lg:text-xl'>{{ $post->description }}</p>
-                        <div class='bg-black text-white p-4 hidden mt-4 lg:block rounded-2xl'>
-                            <pre><code class="language-{{ $tag }}">{{ $post->code }}</code></pre>
+                        <div class='bg-black text-white p-4 hidden mt-4 lg:block rounded-2xl overflow-x-auto'>
+                            <pre class="whitespace-pre-wrap text-white bg-black p-4 rounded-lg"><code class="language-{{ $tag }}">{{ $post->code }}</code></pre>
                         </div>
-                        <div class='w-full flex items-center mt-12 text-lg font-bold'>
+                        <div class='w-full flex items-center mt-12 text-sm lg:text-lg font-bold'>
                             <div class='flex'>
-                                <span class='hidden lg:block'><a href="#commentForm"><button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300'>Reageer</button></a></span>
+                                <span><a href="#commentForm"><button type='submit' class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 '>Reageer</button></a></span>
                             </div>
                             @if (Auth::check() && Auth::id() === $post->user_id)
                             <form method="POST" action="{{ route('destroyPost', $post->id) }}">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <!-- Comment Content -->
-                    <div class="w-full">
+                    <div class="w-full overflow-hidden">
                         <div class='pb-2 mb-2' style='border-color: #606060;'>
                             <div class="flex justify-between items-center">
                                 <p class='text-white font-bold text-xl lg:text-2xl'>{{ $comment->user->first_name }} {{ $comment->user->last_name }}</p>

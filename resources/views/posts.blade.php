@@ -30,7 +30,7 @@ if (is_numeric($tag) && $posts != []) {
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                         <p class='text-white font-bold lg:text-xl'>{{ $post->subject }}</p>
                         <div class="mt-12">
-                            <a href="{{ route('showPost', ['id' => $post->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-lg text-white font-bold py-2 px-6 rounded-md transition duration-300'>Bekijk</button></span></a>
+                            <a href="{{ route('showPost', ['id' => $post->id]) }}"><span><button class='bg-blue-500 hover:bg-blue-600 text-sm lg:text-lg text-white font-bold py-2 px-6 rounded-md transition duration-300'>Bekijk</button></span></a>
                         </div>
                     </div>
                 </div>
