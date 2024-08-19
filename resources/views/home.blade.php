@@ -43,9 +43,9 @@
                     <div class='flex justify-center w-[300px]'><a href="{{ route('showAllPosts') }}" class='text-xl lg:text-2xl ml-3 font-bold pl-2 py-1 mt-8 bg-blue-900 rounded-full w-[200px] text-center cursor-pointer hover:bg-blue-700 transition duration-150 ease-out'>Bekijk</a></div>
                 </div>
                 <div class='text-white px-1 lg:px-7 rounded-3xl lg:flex justify-between items-center w-full lg:w-[900px]'>
-                    <div class='justify-between block lg:hidden my-10'>
-                        <a href="{{ route('showAllPosts') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 2xl:hidden rounded-full h-12 mb-4 lg:mb-0 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
-                        <a href="{{ route('createPost') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 rounded-md h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
+                    <div class='block lg:hidden my-10'>
+                        <a href="{{ route('showAllPosts') }}"><button class='text-sm lg:text-lg text-white px-5 py-1 2xl:hidden rounded-md h-12 mb-4 lg:mb-0 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Alle Posts!</button></a>
+                        <a href="{{ route('createPost') }}"><button class='ml-4 text-sm lg:text-lg text-white px-5 py-1 rounded-md h-12 font-bold hover:bg-blue-700 ease-in-out duration-300 bg-blue-900'>Stel een vraag!</button></a>
                     </div>
                     <h2 class='text-white font-bold text-xl lg:text-3xl my-10'>Wie is er op zoek naar hulp?</h2>
                     <div class=' justify-between hidden lg:block'>
@@ -66,7 +66,7 @@
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
                         <p class='text-white font-bold lg:text-xl'>{{ $lastPost->subject }}</p>
                             <div class='flex mt-8'>
-                                <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span class='hidden lg:block'><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-lg'>Bekijk</button></span></a>
+                                <a href="{{ route('showPost', ['id' => $lastPost->id]) }}"><span><button class='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-300 text-sm lg:text-lg'>Bekijk</button></span></a>
                             </div>
                         </div>
                     </div>
