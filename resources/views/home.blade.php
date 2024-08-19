@@ -17,14 +17,18 @@
                                 <span class='bg-green-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>1</span>
                                 <a href="{{ route('showPosts', ['tag' => strtolower($tags[0]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[0]->tag }}</h3></a>
                             </div>
+                            @if ($tags->count() > 1)
                             <div class='flex items-center my-7'>
                                 <span class='bg-yellow-500 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>2</span>
                                 <a href="{{ route('showPosts', ['tag' => strtolower($tags[1]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[1]->tag }}</h3></a>
                             </div>
+                            @endif
+                            @if ($tags->count() > 2)
                             <div class='flex items-center'>
                                 <span class='bg-orange-600 w-10 h-10 p-2 flex items-center justify-center font-bold text-2xl rounded-full'>3</span>
                                 <a href="{{ route('showPosts', ['tag' => strtolower($tags[2]->tag)]) }}" class='hover:text-gray-300 ease-in-out duration-300'><h3 class='text-xl lg:text-2xl ml-3 font-bold'>{{ $tags[2]->tag }}</h3></a>
                             </div>
+                            @endif
                         </div>
                         <div>
                             <img src='images/grafiek.png' class='rounded-3xl h-[175px] w-[325px] float-right hidden lg:block'>
