@@ -70,18 +70,16 @@
                     </div>
                 </div>
             @endif
-            <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
-                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>
-                <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>1</span></div>
-                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Mauro Scheltens</h3>
-                <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 8 LEERLINGEN</h3>
-                <div class='flex justify-center items-center'><span class='bg-yellow-500 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>2</span></div>
-                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Kasper Ligthart</h3>
-                <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HIELP 5 LEERLINGEN</h2>
-                <div class='flex justify-center items-center'><span class='bg-orange-600 w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full'>3</span></div>
-                <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Jean Kalo</h3>
-                <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500''>HIELP 3 LEERLINGEN</h2>
-            </div>
+            @if ($topUsers->count() !== 0)
+                <div class='bg-neutral-700 text-white py-8 px-7 hidden lg:block rounded-3xl lg:w-[345px] lg:h-[685px] top-48 absolute right-16' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
+                    <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-1'>Top 3 Studenten:</h3>
+                    @foreach($topUsers as $index => $user)
+                        <div class='flex justify-center items-center'><span class='w-16 h-16 p-2 mt-12 flex items-center justify-center font-bold text-4xl rounded-full' style='background-color: {{ $topUsersColors[$index] }}'>{{ $index + 1 }}</span></div>
+                        <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>{{ $user->first_name }}  {{ $user->last_name }}</h3>
+                        <h3 class='text-xl flex justify-center lg:text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500'>HEEFT {{ $user->likes }} {{ $user->likes == 1 ? 'LIKE' : 'LIKES' }}</h3>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
     @endsection
