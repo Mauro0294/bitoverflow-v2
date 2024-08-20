@@ -37,9 +37,9 @@
                 </div>
                 <div class='bg-neutral-700 text-white py-2 px-7 hidden 2xl:block rounded-3xl lg:w-[345px] lg:h-[298px] top-40 xl:absolute right-0 mt-8 xl:mt-0 xl:mr-4' style='box-shadow: 0px 4px 40px 2px rgba(0, 0, 0, 0.25);'>
                     <h3 class='text-xl flex justify-center lg:text-3xl ml-3 mt-3 font-bold pl-2'>Bekijk alle posts</h3>
-                    <h3 class='text-xl flex justify-center text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500 text-center'>VAN IEDEREEN & ELK LEERJAAR</h3>
+                    <h3 class='flex justify-center text-xs ml-3 mt-2 font-bold pl-2 text-neutral-500 text-center'>VAN IEDEREEN & ELK LEERJAAR</h3>
                     <div class='flex justify-center items-center'><span class='bg-green-500 w-16 h-16 p-2 mt-10 lg:ml-4 ml-2 flex items-center justify-center font-bold text-4xl rounded-full'>{{ $postsCount }}</span></div>
-                    <h3 class='text-xl flex justify-center text-xs ml-3 mt-3 font-bold pl-2 text-neutral-500 text-center'>POSTS TOTAAL</h3>
+                    <h3 class='flex justify-center text-xs ml-3 mt-3 font-bold pl-2 text-neutral-500 text-center'>POSTS TOTAAL</h3>
                     <div class='flex justify-center w-[300px]'><a href="{{ route('showAllPosts') }}" class='text-xl lg:text-2xl ml-3 font-bold pl-2 py-1 mt-8 bg-blue-900 rounded-full w-[200px] text-center cursor-pointer hover:bg-blue-700 transition duration-150 ease-out'>Bekijk</a></div>
                 </div>
                 <div class='text-white px-1 lg:px-7 rounded-3xl lg:flex justify-between items-center w-full lg:w-[900px]'>
