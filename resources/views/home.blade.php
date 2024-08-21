@@ -60,7 +60,7 @@
                     <div>
                         <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
                             <p class='text-zinc-500 font-bold text-xs'>{{ $lastPost->date }}</p>
-                            <p class='text-white font-bold text-xl lg:text-2xl'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p>
+                            <a href="{{ route('showUser', [$id = $lastPost->user->id]) }}"><p class='text-white font-bold text-xl lg:text-2xl hover:text-gray-300 ease-in-out duration-300'>{{ $lastPost->user->first_name }} {{ $lastPost->user->last_name }}</p></a>
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $lastPost->user->school_year }}e jaars</p>
                         </div>
                         <p class='text-zinc-500 font-bold text-xs mt-6 uppercase'>Onderwerp:</p>
