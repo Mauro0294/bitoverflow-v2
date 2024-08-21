@@ -63,4 +63,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/comment/{id}/like', [CommentController::class, 'like'])->name('likeComment');
     Route::post('/comment/{id}/dislike', [CommentController::class, 'dislike'])->name('dislikeComment');
+
+    Route::get('user/{id}', [ProfileController::class, 'showUser'])->name('showUser');
 });

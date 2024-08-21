@@ -23,7 +23,7 @@ if (is_numeric($tag) && $posts != []) {
                     <div class="w-full">
                         <div class='pb-2 mb-2 border-b-2 bg-black-500' style='border-color: #606060;'>
                             <p class='text-zinc-500 font-bold text-xs'>{{ $post->date }}</p>
-                            <p class='text-white font-bold text-xl lg:text-2xl'>{{ $post->user->first_name }} {{ $post->user->last_name }}</p>
+                            <a href="{{ route('showUser', [$id = $post->user->id]) }}"><p class='text-white font-bold text-xl lg:text-2xl hover:text-gray-300 ease-in-out duration-300'>{{ $post->user->first_name }} {{ $post->user->last_name }}</p></a>
                             <p class='text-zinc-500 font-bold text-xs uppercase'>{{ $post->user->school_year }}e jaars</p>
                         </div>
                         <span class="rounded-2xl bg-black px-6 py-1 font-bold text-center text-xs" id="tag">{{ $post->tag }}</span>

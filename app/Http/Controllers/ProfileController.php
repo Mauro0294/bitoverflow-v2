@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -75,5 +76,14 @@ class ProfileController extends Controller
         }
         $user->save();
         return back();
+    }
+
+    public function showUser($id)
+    {
+        $user = User::findOrFail($id);
+
+        $lastPost = Post::whereUser_id($user->id)->orderBy('id', 'desc')->first();
+
+        return view('user-profile', compact('user', 'lastPost'));
     }
 }
