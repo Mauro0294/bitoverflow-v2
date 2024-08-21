@@ -695,8 +695,17 @@ video {
 .w-full {
   width: 100%;
 }
+.w-14 {
+  width: 3.5rem;
+}
 .min-w-\[50px\] {
   min-width: 50px;
+}
+.min-w-\[\] {
+  min-width: ;
+}
+.min-w-\[75px\] {
+  min-width: 75px;
 }
 .cursor-default {
   cursor: default;
