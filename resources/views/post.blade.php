@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <!-- Comments Section -->
+                <!-- Comment Section -->
                 <livewire:comment-section :post="$post" :comments="$comments" />
             </div>
         </div>

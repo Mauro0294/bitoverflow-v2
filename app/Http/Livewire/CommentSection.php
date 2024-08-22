@@ -38,17 +38,18 @@ class CommentSection extends Component
         $this->code = '';
         $this->comments = Comment::where('post_id', $this->post->id)->get();
 
-        $this->emit('commentAdded');
     }
-
+    
     public function destroy($id)
     {
         Comment::destroy($id);
         $this->comments = Comment::where('post_id', $this->post->id)->get();
     }
-
+    
     public function render()
     {
+        $this->emit('commentAdded');
+
         return view('livewire.comment-section', [
             'comments' => $this->comments,
             'tag' => $this->tag
