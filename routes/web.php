@@ -58,11 +58,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('posts/store', [PostController::class, 'store'])->name('storePost');
     Route::delete('posts/{id}', [PostController::class, 'destroy'])->name('destroyPost');
 
-    Route::post('comments/store', [CommentController::class, 'store'])->name('storeComment');
-    Route::delete('comments/{id}', [CommentController::class, 'destroy'])->name('destroyComment');
-
-    Route::post('/comment/{id}/like', [CommentController::class, 'like'])->name('likeComment');
-    Route::post('/comment/{id}/dislike', [CommentController::class, 'dislike'])->name('dislikeComment');
-
     Route::get('user/{id}', [ProfileController::class, 'showUser'])->name('showUser');
 });
