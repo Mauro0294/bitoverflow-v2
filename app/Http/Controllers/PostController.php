@@ -12,8 +12,9 @@ class PostController extends Controller
     public function showTagPost($tag) {
         $posts = Post::whereTag($tag)->get();
 
-        return view('posts', ['posts' => $posts, 'tag' => $tag]);
+        return view('posts', compact('posts', 'tag'));
     }
+
     public function showYearPost($tag) {
         $postsUser = User::whereSchool_year($tag)->get();
 
@@ -22,13 +23,15 @@ class PostController extends Controller
             $posts[] = Post::whereUser_id($postUser->id)->get();
         }
 
-        return view('posts', ['posts' => $posts, 'tag' => $tag]);
+        return view('posts', compact('posts', 'tag'));
     }
+
     public function showAllPosts() {
         $posts = Post::all();
 
         return view('posts', ['posts' => $posts, 'tag' => 'All']);
     }
+
     public function showPost($id) {
         $post = Post::whereId($id)->first();
         
@@ -41,7 +44,7 @@ class PostController extends Controller
 
         $comments = $post->comments;
 
-        return view('post', ['post' => $post, 'comments' => $comments, 'tag' => $tag]);
+        return view('post', compact('post', 'comments', 'tag'));
     }
 
     public function store(Request $request)
