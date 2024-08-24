@@ -62,6 +62,6 @@ Route::middleware(['auth'])->group(function () {
             Route::get('posts/year/{year}', 'showYearPost')->name('showYearPosts');
             Route::get('post/{id}', 'showPost')->name('showPost');
             Route::post('posts/store', 'store')->name('storePost');
-            Route::delete('posts/{id}', 'destroy')->name('destroyPost');
+            Route::delete('post/{id}', 'destroy')->name('destroyPost');
         });
 });
