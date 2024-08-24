@@ -17,9 +17,6 @@ class ProfileController extends Controller
 
         $postsCount = Post::whereUser_id($user->id)->count();
 
-        // Get the likes that the user has gotten
-        // Get the comments of the user
-        // Get the likes of the comments
         $comments = Comment::whereUser_id($user->id)->get();
         $likes = 0;
         foreach ($comments as $comment) {
@@ -31,7 +28,7 @@ class ProfileController extends Controller
         $topUsers = $this->getTopUsers();
         $topUsersColors = ['#22C55E', '#EAB308', '#EA580C'];
 
-        return view('profile', ['user' => $user, 'lastPost' => $lastPost, 'postsCount' => $postsCount, 'likes' => $likes, 'comments' => $comments, 'topUsers' => $topUsers, 'topUsersColors' => $topUsersColors]);
+        return view('profile', compact('user', 'lastPost', 'postsCount', 'likes', 'comments', 'topUsers', 'topUsersColors'));
     }
 
     public function getTopUsers()
